@@ -20,8 +20,8 @@ export const fetchRevenue = async () => {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
 
-    console.log('Fetching revenue data...');
-    await new Promise((resolve) => setTimeout(resolve, 10000));
+    // console.log('Fetching revenue data...');
+    // await new Promise((resolve) => setTimeout(resolve, 10000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
@@ -37,8 +37,8 @@ export const fetchRevenue = async () => {
 export const fetchLatestInvoices = async () => {
   // noStore()
 
-  console.log('Fetching invoices...');
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  // console.log('Fetching invoices...');
+  // await new Promise((resolve) => setTimeout(resolve, 10000));
 
   try {
     const data = await sql<LatestInvoiceRaw>`
