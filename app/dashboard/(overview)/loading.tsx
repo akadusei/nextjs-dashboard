@@ -1,5 +1,5 @@
-import DashboardSkeleton from '@/app/ui/skeletons'
+import DashboardSkeleton from '@/app/ui/skeletons';
 
 export default () => {
-  return <DashboardSkeleton />
-}
+  return <DashboardSkeleton />;
+};

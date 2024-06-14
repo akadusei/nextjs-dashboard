@@ -1,9 +1,9 @@
-import { ReactNode } from 'react'
-import '@/app/ui/global.css'
-import { inter } from '@/app/ui/fonts'
+import { ReactNode } from 'react';
+import '@/app/ui/global.css';
+import { inter } from '@/app/ui/fonts';
 
 interface Props {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export default ({ children }: Props) => {
@@ -12,4 +12,4 @@ export default ({ children }: Props) => {
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
-}
+};

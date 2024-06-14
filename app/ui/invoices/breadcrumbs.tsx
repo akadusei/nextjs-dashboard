@@ -9,7 +9,7 @@ interface Breadcrumb {
 }
 
 interface Props {
-  breadcrumbs: Breadcrumb[]
+  breadcrumbs: Breadcrumb[];
 }
 
 export default function Breadcrumbs({ breadcrumbs }: Props) {

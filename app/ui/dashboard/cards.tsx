@@ -3,9 +3,9 @@ import {
   ClockIcon,
   UserGroupIcon,
   InboxIcon,
-} from '@heroicons/react/24/outline'
-import { lusitana } from '@/app/ui/fonts'
-import { fetchCardData } from '@/app/lib/data'
+} from '@heroicons/react/24/outline';
+import { lusitana } from '@/app/ui/fonts';
+import { fetchCardData } from '@/app/lib/data';
 
 const iconMap = {
   collected: BanknotesIcon,
@@ -19,8 +19,8 @@ export default async () => {
     numberOfCustomers,
     numberOfInvoices,
     totalPaidInvoices,
-    totalPendingInvoices
-  } = await fetchCardData()
+    totalPendingInvoices,
+  } = await fetchCardData();
 
   return (
     <>
@@ -39,9 +39,9 @@ export default async () => {
 }
 
 interface CardProps {
-  title: string
-  value: number | string
-  type: 'invoices' | 'customers' | 'pending' | 'collected'
+  title: string;
+  value: number | string;
+  type: 'invoices' | 'customers' | 'pending' | 'collected';
 }
 
 export const Card = ({ title, value, type }: CardProps) => {
@@ -61,4 +61,4 @@ export const Card = ({ title, value, type }: CardProps) => {
       </p>
     </div>
   );
-}
+};

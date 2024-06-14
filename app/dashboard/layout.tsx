@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
-import SideNav from '@/app/ui/dashboard/sidenav'
+import { ReactNode } from 'react';
+import SideNav from '@/app/ui/dashboard/sidenav';
 
 interface Props {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export default ({ children }: Props) => {
@@ -13,5 +13,5 @@ export default ({ children }: Props) => {
       </div>
       <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
     </div>
-  )
-}
+  );
+};
