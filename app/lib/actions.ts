@@ -4,6 +4,8 @@ import { z } from 'zod'
 import { sql } from '@vercel/postgres'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
+import { AuthError } from 'next-auth'
+import { signIn, signOut } from '@/auth'
 
 const FormSchema = z.object({
   id: z.string(),
@@ -29,7 +31,7 @@ export interface State {
   message?: string | null
 }
 
-export const createInvoice = async (prevState: State, formData: FormData) => {
+export const createInvoice = async (_: State, formData: FormData) => {
   const validateFields = CreateInvoice.safeParse({
     amount: formData.get('amount'),
     customerId: formData.get('customerId'),
@@ -58,7 +60,7 @@ export const createInvoice = async (prevState: State, formData: FormData) => {
   redirect('/dashboard/invoices')
 }
 
-export const updateInvoice = async (id: string, prevState: State, formData: FormData) => {
+export const updateInvoice = async (id: string, _: State, formData: FormData) => {
   const validateFields = UpdateInvoice.safeParse({
     amount: formData.get('amount'),
     customerId: formData.get('customerId'),
@@ -89,7 +91,7 @@ export const updateInvoice = async (id: string, prevState: State, formData: Form
 }
 
 export const deleteInvoice = async (id: string) => {
-  throw new Error('Failed to delete invoice')
+  // throw new Error('Failed to delete invoice')
 
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
@@ -98,4 +100,24 @@ export const deleteInvoice = async (id: string) => {
   } catch (error) {
     return { message: 'Database Error: Failed to delete invoice' }
   }
+}
+
+export const logIn = async (_: string | undefined, formData: FormData) => {
+  try {
+    await signIn('credentials', formData)
+
+  } catch (error) {
+    if (!(error instanceof AuthError)) throw error
+
+    switch (error.type) {
+      case 'CredentialsSignin':
+        return 'Invalid credentials.'
+      default:
+        return 'Something went wrong.'
+    }
+  }
+}
+
+export const logOut = async () => {
+  await signOut()
 }
