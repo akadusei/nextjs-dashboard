@@ -6,10 +6,10 @@ interface Props {
   children: ReactNode;
 }
 
-export default ({ children }: Props) => {
+export default function Layout({ children }: Props) {
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
-};
+}

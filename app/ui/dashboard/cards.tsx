@@ -14,7 +14,7 @@ const iconMap = {
   invoices: InboxIcon,
 };
 
-export default async () => {
+export default async function Cards() {
   const {
     numberOfCustomers,
     numberOfInvoices,

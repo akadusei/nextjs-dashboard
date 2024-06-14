@@ -11,7 +11,7 @@ interface Props {
   searchParams?: { page?: string; query?: string };
 }
 
-export default async ({ searchParams }: Props) => {
+export default async function Page({ searchParams }: Props) {
   const currentPage = Number(searchParams?.page || 1);
   const query = searchParams?.query || '';
 

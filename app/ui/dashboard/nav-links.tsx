@@ -47,7 +47,7 @@ const links: Link[] = [
 //   return _links
 // }
 
-export default () => {
+export default function NavLinks() {
   const pathname = usePathname();
   // const _links = useLinks(links)
 
@@ -73,4 +73,4 @@ export default () => {
       })}
     </>
   );
-};
+}
