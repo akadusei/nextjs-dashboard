@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { Metadata } from 'next';
 import {
   RevenueChartSkeleton,
   LatestInvoicesSkeleton,
@@ -31,3 +32,7 @@ export default async function Page() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
